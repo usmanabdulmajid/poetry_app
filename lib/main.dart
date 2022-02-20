@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poetry_app/view/screens/home.dart';
+import 'package:poetry_app/view/screens/poet_screen.dart';
+import 'package:poetry_app/view/screens/read_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const Home(),
+      home: const ReadScreen(),
     );
   }
 }

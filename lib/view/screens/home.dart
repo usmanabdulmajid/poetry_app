@@ -8,43 +8,40 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Poets'),
+        backgroundColor: Colors.lightGreen,
         centerTitle: true,
+        elevation: 0.0,
       ),
-      body: GridView.count(
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 6,
-        padding: EdgeInsets.all(12),
-        crossAxisCount: 2,
-        children: [
-          Container(
-            padding: EdgeInsets.all(29),
-            width: MediaQuery.of(context).size.width,
-            child: const Text('Bankai'),
-            decoration: BoxDecoration(
-                color: Colors.purple, borderRadius: BorderRadius.circular(12)),
-          ),
-          Container(
-            padding: EdgeInsets.all(29),
-            width: MediaQuery.of(context).size.width,
-            child: const Text('Bankai'),
-            decoration: BoxDecoration(
-                color: Colors.purple, borderRadius: BorderRadius.circular(12)),
-          ),
-          Container(
-            padding: EdgeInsets.all(29),
-            width: MediaQuery.of(context).size.width,
-            child: const Text('Bankai'),
-            decoration: BoxDecoration(
-                color: Colors.purple, borderRadius: BorderRadius.circular(12)),
-          ),
-          Container(
-            padding: EdgeInsets.all(29),
-            width: MediaQuery.of(context).size.width,
-            child: const Text('Bankai'),
-            decoration: BoxDecoration(
-                color: Colors.purple, borderRadius: BorderRadius.circular(12)),
-          ),
-        ],
+      body: GridView.builder(
+        padding:
+            const EdgeInsets.only(top: 10, right: 16, left: 16, bottom: 10),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 3 / 2,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+          crossAxisCount: 2,
+        ),
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          return Container(
+            padding: const EdgeInsets.all(30),
+            decoration: const BoxDecoration(
+              color: Colors.lightGreen,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(24),
+                bottomLeft: Radius.circular(24),
+              ),
+            ),
+            alignment: Alignment.bottomLeft,
+            child: const Text(
+              'William Allingham',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white),
+            ),
+          );
+        },
       ),
     );
   }

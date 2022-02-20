@@ -44,7 +44,7 @@ class PoetScreen extends StatelessWidget {
                   "Reluctantly but sure perceives"
                   "A gain upon the backward leaves --",
                   maxLines: 2,
-                  style: TextStyle(height: 3.0),
+                  style: TextStyle(height: 2.0),
                 )
               ],
             ),

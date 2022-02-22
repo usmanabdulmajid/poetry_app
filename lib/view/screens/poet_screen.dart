@@ -10,8 +10,10 @@ class PoetScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('poetry of wiiliam turner'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: ListView.separated(
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return Container(
             padding: const EdgeInsets.all(12),

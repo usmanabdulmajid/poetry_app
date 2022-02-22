@@ -43,32 +43,33 @@ class ReadScreen extends StatelessWidget {
               ),
               const YGap(100),
               Text(
-                  "Summer begins to have the look"
-                  "Peruser of enchanting Book"
-                  "Reluctantly but sure perceives"
-                  "A gain upon the backward leaves --"
-                  ""
-                  "Autumn begins to be inferred"
-                  "By millinery of the cloud"
-                  "Or deeper color in the shawl"
-                  "That wraps the everlasting hill."
-                  ""
-                  "The eye begins its avarice"
-                  "A meditation chastens speech"
-                  "Some Dyer of a distant tree"
-                  "Resumes his gaudy industry."
-                  ""
-                  "Conclusion is the course of All"
-                  "At most to be perennial"
-                  "And then elude stability"
-                  "Recalls to immortality.",
-                  style: GoogleFonts.abel(
-                    textStyle: const TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                        letterSpacing: 1.0,
-                        height: 1.5),
-                  ))
+                "Summer begins to have the look"
+                "Peruser of enchanting Book"
+                "Reluctantly but sure perceives"
+                "A gain upon the backward leaves --"
+                ""
+                "Autumn begins to be inferred"
+                "By millinery of the cloud"
+                "Or deeper color in the shawl"
+                "That wraps the everlasting hill."
+                ""
+                "The eye begins its avarice"
+                "A meditation chastens speech"
+                "Some Dyer of a distant tree"
+                "Resumes his gaudy industry."
+                ""
+                "Conclusion is the course of All"
+                "At most to be perennial"
+                "And then elude stability"
+                "Recalls to immortality.",
+                style: GoogleFonts.abel(
+                  textStyle: const TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      letterSpacing: 1.0,
+                      height: 1.5),
+                ),
+              ),
             ],
           ),
         ),

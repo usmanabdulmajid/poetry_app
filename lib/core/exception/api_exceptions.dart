@@ -4,6 +4,6 @@ class InvalidUri extends ApiException {}
 
 class TimeOut extends ApiException {}
 
-class InvalidNetwork extends ApiException {}
+class NetworkException extends ApiException {}
 
 class ResponseException extends ApiException {}

@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poetry_app/cache/sql_cache.dart';
+import 'package:poetry_app/core/api/api_client.dart';
 import 'package:poetry_app/core/utils/extensions.dart';
 import 'package:poetry_app/core/utils/sizing.dart';
+import 'package:poetry_app/repository/poetry_repository_imp.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    PoetryRepositoryImp remoteDataSourceImp =
+        PoetryRepositoryImp(ApiClient(), SqlCache());
+    remoteDataSourceImp.poems('Lisle Bowles').then((value) => print(value));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

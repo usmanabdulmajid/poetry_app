@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:poetry_app/routes/app_routes.dart';
+
+import 'core/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());

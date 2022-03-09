@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poetry_app/utils/sizing.dart';
+import 'package:poetry_app/core/utils/sizing.dart';
 
 class PoetScreen extends StatelessWidget {
   const PoetScreen({Key? key}) : super(key: key);

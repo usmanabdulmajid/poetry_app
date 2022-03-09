@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:poetry_app/utils/extensions.dart';
-import 'package:poetry_app/utils/sizing.dart';
+import 'package:poetry_app/core/utils/extensions.dart';
+import 'package:poetry_app/core/utils/sizing.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

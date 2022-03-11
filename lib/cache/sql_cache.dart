@@ -1,6 +1,6 @@
 import 'package:path/path.dart';
 import 'package:poetry_app/cache/cache_contract.dart';
-import 'package:poetry_app/model/poetry.dart';
+import 'package:poetry_app/model/poem.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SqlCache implements CacheContract {
@@ -26,24 +26,20 @@ class SqlCache implements CacheContract {
   }
 
   @override
-  Future<void> cachePoetry(List<Poetry> poems) async {
-    try {
-      final db = await database;
-      for (var poem in poems) {
-        await db.insert('poems', poem.toMap());
-      }
-    } catch (e) {
-      print(e);
+  Future<void> cachePoetry(List<Poem> poems) async {
+    final db = await database;
+    for (var poem in poems) {
+      await db.insert('poems', poem.toMap());
     }
   }
 
   @override
-  Future<List<Poetry>> poems(String poet) async {
+  Future<List<Poem>> poems(String poet) async {
     final db = await database;
     List<Map<String, dynamic>> result = await db
         .rawQuery('SELECT * FROM poems  WHERE author LIKE ?', ['%$poet%']);
 
-    List<Poetry> poems = result.map((e) => Poetry.fromMap(e)).toList();
+    List<Poem> poems = result.map((e) => Poem.fromMap(e)).toList();
     return poems;
   }
 

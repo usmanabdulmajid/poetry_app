@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poetry_app/core/utils/extensions.dart';
 import 'package:poetry_app/core/utils/sizing.dart';
+import 'package:poetry_app/model/poem.dart';
 
 class ReadScreen extends StatelessWidget {
-  const ReadScreen({Key? key}) : super(key: key);
+  final Poem poem;
+  const ReadScreen({required this.poem, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class ReadScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: context.screenWidth(.4)),
                 child: Text(
-                  'Not at Home to CallersNot at Home to CallersNot',
+                  poem.title,
                   style: GoogleFonts.abel(
                     textStyle: const TextStyle(
                       fontSize: 30,
@@ -37,31 +39,13 @@ class ReadScreen extends StatelessWidget {
                 ),
               ),
               const YGap(10),
-              const Text(
-                'wolf whiteman',
-                style: TextStyle(color: Colors.white),
+              Text(
+                poem.author,
+                style: const TextStyle(color: Colors.white),
               ),
               const YGap(100),
               Text(
-                "Summer begins to have the look"
-                "Peruser of enchanting Book"
-                "Reluctantly but sure perceives"
-                "A gain upon the backward leaves --"
-                ""
-                "Autumn begins to be inferred"
-                "By millinery of the cloud"
-                "Or deeper color in the shawl"
-                "That wraps the everlasting hill."
-                ""
-                "The eye begins its avarice"
-                "A meditation chastens speech"
-                "Some Dyer of a distant tree"
-                "Resumes his gaudy industry."
-                ""
-                "Conclusion is the course of All"
-                "At most to be perennial"
-                "And then elude stability"
-                "Recalls to immortality.",
+                poem.lines.join('\n'),
                 style: GoogleFonts.abel(
                   textStyle: const TextStyle(
                       fontSize: 25,

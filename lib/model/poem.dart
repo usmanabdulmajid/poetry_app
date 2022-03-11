@@ -1,12 +1,12 @@
 import 'package:path/path.dart';
 
-class Poetry {
+class Poem {
   String title;
   String author;
   List<String> lines;
   String linecount;
 
-  Poetry(
+  Poem(
       {required this.title,
       required this.author,
       required this.lines,
@@ -21,16 +21,16 @@ class Poetry {
     };
   }
 
-  factory Poetry.fromMap(Map<String, dynamic> map) {
-    return Poetry(
+  factory Poem.fromMap(Map<String, dynamic> map) {
+    return Poem(
         title: map['title'],
         author: map['author'],
         lines: map['lines'].split('-'),
         linecount: map['linecount']);
   }
 
-  factory Poetry.fromJson(Map<String, dynamic> json) {
-    return Poetry(
+  factory Poem.fromJson(Map<String, dynamic> json) {
+    return Poem(
       title: json['title'],
       author: json['author'],
       lines: List<String>.from(json['lines']),

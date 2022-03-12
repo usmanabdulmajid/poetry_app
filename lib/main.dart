@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poetry_app/cache/sql_cache.dart';
+import 'package:poetry_app/core/local_db/sql_db.dart';
 import 'package:poetry_app/core/api/api_client.dart';
 import 'package:poetry_app/repository/poem_repository_imp.dart';
 import 'package:poetry_app/viewmodel/poem_provider.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PoemProvider>(
       create: (context) =>
-          PoemProvider(PoemRepositoryImp(ApiClient(), SqlCache())),
+          PoemProvider(PoemRepositoryImp(ApiClient(), SqlDb())),
       child: MaterialApp(
         title: 'Poetry App',
         theme: ThemeData(

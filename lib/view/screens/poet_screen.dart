@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poetry_app/core/routes/app_routes.dart';
 import 'package:poetry_app/core/utils/sizing.dart';
 import 'package:poetry_app/viewmodel/poem_provider.dart';
@@ -12,7 +13,7 @@ class PoetScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('poems of $poet'),
+          title: Text('poems of $poet', style: GoogleFonts.acme()),
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -38,27 +39,24 @@ class PoetScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Poem ${index + 1}',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(poem.poemList[index].linecount),
+                          Text('Poem ${index + 1}',
+                              style: GoogleFonts.acme(fontSize: 18)),
+                          Text(poem.poemList[index].linecount,
+                              style: GoogleFonts.abel()),
                         ],
                       ),
                       const YGap(5),
                       Text(
                         poem.poemList[index].title,
-                        style: const TextStyle(
-                            color: Colors.lightGreen,
-                            fontStyle: FontStyle.italic),
+                        style: GoogleFonts.abel(
+                            color: Colors.green, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         poem.poemList[index].lines.join('\n'),
                         maxLines: 2,
-                        style: const TextStyle(height: 2.0),
+                        style: GoogleFonts.abel(
+                          height: 1.5,
+                        ),
                       )
                     ],
                   ),

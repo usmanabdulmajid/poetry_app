@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:poetry_app/cache/sql_cache.dart';
-import 'package:poetry_app/core/api/api_client.dart';
 import 'package:poetry_app/core/routes/app_routes.dart';
 import 'package:poetry_app/core/utils/extensions.dart';
 import 'package:poetry_app/core/utils/sizing.dart';
-import 'package:poetry_app/repository/poem_repository_imp.dart';
 import 'package:poetry_app/viewmodel/poem_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -17,11 +14,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late TextEditingController nameController;
   @override
   void initState() {
-    // PoemRepositoryImp remoteDataSourceImp =
-    //     PoemRepositoryImp(ApiClient(), SqlCache());
-    // remoteDataSourceImp.poems('Lisle Bowles').then((value) => print(value));
+    nameController = TextEditingController();
     super.initState();
   }
 
@@ -29,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Poets'),
+        title: Text('Poets', style: GoogleFonts.acme(letterSpacing: 1)),
         backgroundColor: Colors.green,
         centerTitle: true,
         elevation: 0.0,
@@ -48,11 +44,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.green)),
                 alignment: Alignment.center,
-                child: const TextField(
-                  decoration: InputDecoration(
+                child: TextField(
+                  style: GoogleFonts.acme(),
+                  decoration: const InputDecoration(
                     hintText: 'search poet',
                     border: InputBorder.none,
                   ),
+                  onChanged: (name) {
+                    context.read<PoemProvider>().searchPoet(name);
+                  },
                 ),
               ),
               const YGap(20),
@@ -63,6 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: CircularProgressIndicator(),
                     ),
                   );
+                }
+                if (poem.poetList.isEmpty) {
+                  return const Expanded(
+                      child: Center(child: Text('No poet found')));
                 }
                 return Expanded(
                   child: GridView.builder(

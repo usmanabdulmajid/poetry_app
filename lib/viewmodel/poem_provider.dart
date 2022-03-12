@@ -13,7 +13,7 @@ class PoemProvider extends ChangeNotifier {
 
   void poets() async {
     await Future.delayed(const Duration(seconds: 1));
-    poetList = await poemRepository.authors();
+    poetList = await poemRepository.poets();
     loading = false;
     notifyListeners();
   }
@@ -22,6 +22,14 @@ class PoemProvider extends ChangeNotifier {
     loading = true;
     await Future.delayed(const Duration(seconds: 1));
     poemList = await poemRepository.poems(poet);
+    loading = false;
+    notifyListeners();
+  }
+
+  void searchPoet(String name) async {
+    loading = true;
+    await Future.delayed(const Duration(seconds: 1));
+    poetList = await poemRepository.searchPoet(name);
     loading = false;
     notifyListeners();
   }

@@ -1,9 +1,9 @@
 import 'package:path/path.dart';
-import 'package:poetry_app/cache/cache_contract.dart';
+import 'package:poetry_app/core/local_db/local_db.dart';
 import 'package:poetry_app/model/poem.dart';
 import 'package:sqflite/sqflite.dart';
 
-class SqlCache implements CacheContract {
+class SqlDb implements LocalDb {
   Future<Database> _initializeDb() async {
     String path = join(await getDatabasesPath(), 'poems_db');
     Database poemDb =
@@ -47,6 +47,18 @@ class SqlCache implements CacheContract {
   Future<List<String>> poets() async {
     final db = await database;
     List<Map<String, dynamic>> result = await db.query('poets');
+    List<String> poets = [];
+    for (var i = 0; i < result.length; i++) {
+      poets.add(result[i]['name']);
+    }
+    return poets;
+  }
+
+  @override
+  Future<List<String>> searchPoet(String name) async {
+    final db = await database;
+    List<Map<String, dynamic>> result =
+        await db.rawQuery('SELECT * FROM poets WHERE name LIKE ?', ['%$name%']);
     List<String> poets = [];
     for (var i = 0; i < result.length; i++) {
       poets.add(result[i]['name']);

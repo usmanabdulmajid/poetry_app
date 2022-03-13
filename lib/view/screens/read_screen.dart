@@ -16,8 +16,7 @@ class ReadScreen extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(
-                  'assets/images/gary-ellis-kFHhbIrviVQ-unsplash.jpg'),
+              image: AssetImage('images/gary-ellis-kFHhbIrviVQ-unsplash.jpg'),
               fit: BoxFit.cover,
             ),
           ),

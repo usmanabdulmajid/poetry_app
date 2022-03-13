@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:poetry_app/core/local_db/sql_db.dart';
 import 'package:poetry_app/core/api/api_client.dart';
 import 'package:poetry_app/repository/poem_repository_imp.dart';
@@ -25,6 +26,14 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
+        builder: (context, child) {
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+            child: child!,
+            value: const SystemUiOverlayStyle(
+                statusBarColor: Colors.transparent,
+                systemNavigationBarColor: Colors.transparent),
+          );
+        },
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoute.home,
         onGenerateRoute: AppRoute.generateRoute,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poetry_app/core/routes/app_routes.dart';
 import 'package:poetry_app/core/utils/extensions.dart';
@@ -56,17 +57,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const YGap(20),
-              Consumer<PoemProvider>(builder: (context, poem, child) {
-                if (poem.loading) {
+              Consumer<PoemProvider>(builder: (context, model, child) {
+                if (model.loading) {
                   return const Expanded(
                     child: Center(
-                      child: CircularProgressIndicator(),
+                      child: SpinKitSpinningLines(color: Colors.green),
                     ),
                   );
                 }
-                if (poem.poetList.isEmpty) {
-                  return const Expanded(
-                      child: Center(child: Text('No poet found')));
+                if (model.networkError) {
+                  return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const YGap(100),
+                        Image.asset(
+                          'images/wifi.png',
+                          width: 150,
+                          height: 150,
+                        ),
+                        Text('No Internet', style: GoogleFonts.acme()),
+                        IconButton(
+                            onPressed: () async {
+                              context.read<PoemProvider>().poets();
+                            },
+                            icon: const Icon(Icons.refresh))
+                      ]);
+                }
+                if (model.poetList.isEmpty) {
+                  return Expanded(
+                      child: Center(
+                          child: Text('No poet found',
+                              style: GoogleFonts.acme())));
                 }
                 return Expanded(
                   child: GridView.builder(
@@ -79,20 +100,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisSpacing: 8,
                       crossAxisCount: 2,
                     ),
-                    itemCount: poem.poetList.length,
+                    itemCount: model.poetList.length,
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
                           context
                               .read<PoemProvider>()
-                              .poems(poem.poetList[index]);
+                              .poems(model.poetList[index]);
                           Navigator.pushNamed(context, AppRoute.poet,
-                              arguments: poem.poetList[index]);
+                              arguments: model.poetList[index]);
                         },
                         child: Container(
                           padding: const EdgeInsets.all(30),
                           decoration: const BoxDecoration(
-                            //color: Colors.green,
                             borderRadius: BorderRadius.only(
                               topRight: Radius.circular(24),
                               bottomLeft: Radius.circular(24),
@@ -105,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           alignment: Alignment.bottomLeft,
-                          child: Text(poem.poetList[index],
+                          child: Text(model.poetList[index],
                               style: GoogleFonts.acme(
                                 textStyle: const TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -118,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 );
-              })
+              }),
             ],
           ),
         ),

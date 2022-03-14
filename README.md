@@ -7,12 +7,11 @@
 A new Flutter project - This App was built to try out provider for state management. This App uses the [poetryDb api](https://poetrydb.org/) to get poets and poems.
 
 ## screenshots
----
-![homescreen](https://user-images.githubusercontent.com/63570223/158272144-1d7e05b0-7108-41d1-a4ae-7b80016f0729.png width="400" alt="screenshot" height="550px")
 
-![poetscreen](https://user-images.githubusercontent.com/63570223/158272320-e31359b6-3620-4a1b-b722-1f266b7dc567.png)
+<img style="margin: 30px" src="https://user-images.githubusercontent.com/63570223/158272144-1d7e05b0-7108-41d1-a4ae-7b80016f0729.png" alt="screenshot"  height="550px">
+<img style="margin: 30px" src="https://user-images.githubusercontent.com/63570223/158272320-e31359b6-3620-4a1b-b722-1f266b7dc567.png" alt="screenshot"  height="550px">
+<img style="margin: 30px" src="https://user-images.githubusercontent.com/63570223/158272439-dc2f44d9-7ae6-40b3-934e-64ec724b1488.png" alt="screenshot"  height="550px">
 
-![readscreen](https://user-images.githubusercontent.com/63570223/158272439-dc2f44d9-7ae6-40b3-934e-64ec724b1488.png)
 
 ## Getting Started
 ---

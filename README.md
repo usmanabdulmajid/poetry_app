@@ -8,7 +8,7 @@ A new Flutter project - This App was built to try out provider for state managem
 
 ## screenshots
 ---
-![homescreen](https://user-images.githubusercontent.com/63570223/158272144-1d7e05b0-7108-41d1-a4ae-7b80016f0729.png)
+![homescreen](https://user-images.githubusercontent.com/63570223/158272144-1d7e05b0-7108-41d1-a4ae-7b80016f0729.png width="400" height="790")
 
 ![poetscreen](https://user-images.githubusercontent.com/63570223/158272320-e31359b6-3620-4a1b-b722-1f266b7dc567.png)
 

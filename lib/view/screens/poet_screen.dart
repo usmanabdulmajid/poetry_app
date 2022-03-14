@@ -47,7 +47,7 @@ class PoetScreen extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             itemCount: model.poemList.length,
             itemBuilder: (context, index) {
-              return GestureDetector(
+              return InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, AppRoute.read,
                       arguments: model.poemList[index]);

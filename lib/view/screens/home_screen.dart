@@ -90,52 +90,63 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: GoogleFonts.acme())));
                 }
                 return Expanded(
-                  child: GridView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.only(
-                        top: 10, right: 16, left: 16, bottom: 10),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: context.isPortrait ? 3 / 2 : 5 / 2,
-                      mainAxisSpacing: 8,
-                      crossAxisSpacing: 8,
-                      crossAxisCount: 2,
-                    ),
-                    itemCount: model.poetList.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          context
-                              .read<PoemProvider>()
-                              .poems(model.poetList[index]);
-                          Navigator.pushNamed(context, AppRoute.poet,
-                              arguments: model.poetList[index]);
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(30),
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(24),
-                              bottomLeft: Radius.circular(24),
-                            ),
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.lightGreen,
-                                Colors.green,
-                              ],
-                            ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: GridView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          padding: const EdgeInsets.only(
+                              top: 10, right: 16, left: 16, bottom: 10),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            childAspectRatio:
+                                context.isPortrait ? 3 / 2 : 5 / 2,
+                            mainAxisSpacing: 8,
+                            crossAxisSpacing: 8,
+                            crossAxisCount: 2,
                           ),
-                          alignment: Alignment.bottomLeft,
-                          child: Text(model.poetList[index],
-                              style: GoogleFonts.acme(
-                                textStyle: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white,
+                          itemCount: model.poetList.length,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<PoemProvider>()
+                                    .poems(model.poetList[index]);
+                                Navigator.pushNamed(context, AppRoute.poet,
+                                    arguments: model.poetList[index]);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(30),
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    topRight: Radius.circular(24),
+                                    bottomLeft: Radius.circular(24),
+                                  ),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.lightGreen,
+                                      Colors.green,
+                                    ],
+                                  ),
                                 ),
-                              )),
+                                alignment: Alignment.bottomLeft,
+                                child: Text(model.poetList[index],
+                                    style: GoogleFonts.acme(
+                                      textStyle: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                      ),
+                                    )),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
+                      ),
+                      const YGap(100),
+                    ],
                   ),
                 );
               }),

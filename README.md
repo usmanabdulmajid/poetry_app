@@ -11,6 +11,7 @@ A new Flutter project - This App was built to try out provider for state managem
   <img style="margin: 30px" src="https://user-images.githubusercontent.com/63570223/158272144-1d7e05b0-7108-41d1-a4ae-7b80016f0729.png" alt="screenshot"  height="550px">
   <img style="margin: 30px" src="https://user-images.githubusercontent.com/63570223/158272320-e31359b6-3620-4a1b-b722-1f266b7dc567.png" alt="screenshot"  height="550px">
   <img style="margin: 30px" src="https://user-images.githubusercontent.com/63570223/158272439-dc2f44d9-7ae6-40b3-934e-64ec724b1488.png" alt="screenshot"  height="550px">
+  <img style="margin: 30px" src="https://user-images.githubusercontent.com/63570223/158370459-3a6b37dd-9742-4d5c-9b9f-01b4d760d08f.png" alt="screenshot"  height="550px">
 </div>
 
 
